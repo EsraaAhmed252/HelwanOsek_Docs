@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event-Handling - HelwanOSEK</title>
+    <meta property="og:title" content="Event-Handling - HelwanOSEK" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Raleway;
+        font-size: 18px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="shortcut icon"
+      href="public/ozekaa.ico"
+      type="icon/png"
+      sizes="32x32"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <style>
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <script
+        type="text/javascript"
+        src="https://unpkg.com/dangerous-html/dist/default/lib.umd.js"
+      ></script>
+      <link href="./event-handling.css" rel="stylesheet" />
+
+      <div class="event-handling-container">
+        <div data-role="Header" class="event-handling-navbar-container">
+          <div class="event-handling-navbar">
+            <div class="event-handling-left-side">
+              <div class="event-handling-links-container">
+                <div
+                  data-thq="thq-dropdown"
+                  class="event-handling-thq-dropdown list-item"
+                >
+                  <div
+                    data-thq="thq-dropdown-toggle"
+                    class="event-handling-dropdown-toggle"
+                  >
+                    <a href="#APIS" class="event-handling-link">APIS</a>
+                    <div
+                      data-thq="thq-dropdown-arrow"
+                      class="event-handling-dropdown-arrow"
+                    ></div>
+                    <svg viewBox="0 0 1024 1024" class="event-handling-icon">
+                      <path
+                        d="M298 214h598v84h-598v-84zM298 554v-84h598v84h-598zM298 810v-84h598v84h-598zM170 704q26 0 45 19t19 45-19 45-45 19-45-19-19-45 19-45 45-19zM170 192q26 0 45 18t19 46-19 46-45 18-45-18-19-46 19-46 45-18zM170 448q26 0 45 18t19 46-19 46-45 18-45-18-19-46 19-46 45-18z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <ul
+                    data-thq="thq-dropdown-list"
+                    class="event-handling-dropdown-list"
+                  >
+                    <li
+                      data-thq="thq-dropdown"
+                      class="event-handling-dropdown list-item"
+                    >
+                      <a href="#Set">
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="event-handling-dropdown-toggle1"
+                        >
+                          <span class="event-handling-text">Set Event</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li
+                      data-thq="thq-dropdown"
+                      class="event-handling-dropdown1 list-item"
+                    >
+                      <a href="#Clear">
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="event-handling-dropdown-toggle2"
+                        >
+                          <span class="event-handling-text01">Clear Event</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li
+                      data-thq="thq-dropdown"
+                      class="event-handling-dropdown2 list-item"
+                    >
+                      <a href="#Wait">
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="event-handling-dropdown-toggle3"
+                        >
+                          <span class="event-handling-text02">Wait Event</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li
+                      data-thq="thq-dropdown"
+                      class="event-handling-dropdown3 list-item"
+                    >
+                      <a href="#Get">
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="event-handling-dropdown-toggle4"
+                        >
+                          <span class="event-handling-text03">Get Event</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="event-handling-right-side">
+              <a href="index.html" class="event-handling-cta-btn Anchor button">
+                Home
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="resources" class="event-handling-hero">
+          <div class="event-handling-content-container">
+            <div class="event-handling-hero-text">
+              <h1 class="event-handling-heading Section-Heading">
+                Event Handling
+              </h1>
+              <a href="#APIS" class="event-handling-cta-btn1 Anchor button">
+                START NOW
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="APIS" class="event-handling-apis">
+          <div class="event-handling-heading-container">
+            <h2 class="event-handling-text04 Section-Heading">API</h2>
+          </div>
+          <div class="event-handling-cards-container">
+            <div class="event-handling-features-card">
+              <div class="event-handling-icon-container">
+                <svg viewBox="0 0 1024 1024" class="event-handling-icon02">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="event-handling-text-container">
+                <a href="#Set" class="event-handling-heading1 Card-Heading">
+                  Set Event
+                </a>
+                <span class="event-handling-text05">
+                  <span>
+                    is a critical function in OSEK event handling as it allows
+                    tasks and ISRs to communicate and synchronize with each
+                    other effectively.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+            <div class="event-handling-features-card1">
+              <div class="event-handling-icon-container1">
+                <svg viewBox="0 0 1024 1024" class="event-handling-icon05">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="event-handling-text-container1">
+                <a href="#Clear" class="event-handling-heading2 Card-Heading">
+                  Clear Event
+                </a>
+                <span class="event-handling-text08">
+                  <span>
+                    is a critical function in OSEK event handling as it allows
+                    Event Flags to be reused and reprocessed by tasks and ISRs,
+                    making the system more efficient and responsive to events.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+            <div class="event-handling-features-card2">
+              <div class="event-handling-icon-container2">
+                <svg viewBox="0 0 1024 1024" class="event-handling-icon08">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="event-handling-text-container2">
+                <a href="#Wait" class="event-handling-heading3 Card-Heading">
+                  Wait Event
+                </a>
+                <span class="event-handling-text11">
+                  <span>
+                    allows the task to block and wait for the event to occur,
+                    without wasting CPU time constantly checking for the event.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+            <div class="event-handling-features-card3">
+              <div class="event-handling-icon-container3">
+                <svg viewBox="0 0 1024 1024" class="event-handling-icon11">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="event-handling-text-container3">
+                <a href="#Get" class="event-handling-heading4 Card-Heading">
+                  Get Event
+                </a>
+                <span class="event-handling-text14">
+                  <span class="Card-Text">
+                    allows the task to block and wait for any events that may be
+                    generated by higher-priority tasks, ensuring that the
+                    resource is not accessed simultaneously by multiple tasks.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="event-handling-section-separator"></div>
+        <div class="event-handling-container1">
+          <div id="Set" class="event-handling-set">
+            <h1 class="event-handling-text17 Section-Heading">Set Event</h1>
+            <div class="event-handling-div">
+              <dangerous-html
+                html="<div>
+   
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType SetEvent(TaskType taskID, EventMaskType mask);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>TaskID Name of the task that owns the event(s).</br> Mask Event mask of the events that are to be set. </p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>None</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:2pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ID</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Input taskID is not a valid task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The task is not an extended task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_STATE</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The task is in the SUSPENDED state. Events cannot be set for tasks in the SUSPENDED state.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 0pt; line-height: 1.5; font-size: 16pt;'>The events defined by the input mask are set for the task defined by the input taskID. Multiple events can be set for a given task with one call to this service. If the task is in the WAITING state, and is waiting on one of the events that is set, the OS will move the task into the READY state. If the task is in the READY state, the event is set but no action occurs for that task until it runs again and invokes WaitEvent() with one of these events set. At that time, the task does not enter the WAITING state because the event is already set.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+            <img
+              alt="image"
+              src="public/Pics/setevt-200h.png"
+              class="event-handling-image"
+            />
+          </div>
+          <div class="event-handling-section-separator1"></div>
+          <div id="Clear" class="event-handling-clear">
+            <h1 class="event-handling-text18 Section-Heading">Clear Event</h1>
+            <div class="event-handling-div1">
+              <dangerous-html
+                html="<div>
+   
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType ClearEvent(EventMaskType mask);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>Mask Event mask of the events that are to be cleared. </p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>None</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:2pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service was not invoked from an extended task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_CALLEVEL</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service was invoked on the interrupt level.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 0pt; line-height: 1.5; font-size: 16pt;'>This service clears all of the events based on the events that are included in the input mask.This service can only be invoked from the extended task that owns the events. Typically, this service will be invoked after the task returns from the WAITING state and has processed a particular event or set of events.
+</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+            <img
+              alt="image"
+              src="public/Pics/setevt-200h.png"
+              class="event-handling-image1"
+            />
+          </div>
+          <div class="event-handling-section-separator2"></div>
+          <div id="Wait" class="event-handling-wait">
+            <h1 class="event-handling-text19 Section-Heading">Wait Event</h1>
+            <div class="event-handling-div2">
+              <dangerous-html
+                html="<div>
+   
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType WaitEvent(EventMaskType mask);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>Mask Event mask of the events to be waited for. </p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>None</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:2pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_RESOURCE</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The extended task from which the service was invoked still has resources locked.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The task is not an extended task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_CALLEVEL</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service was invoked on the interrupt level.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 0pt; line-height: 1.5; font-size: 16pt;'>This service checks the status of all of the events defined by the input value mask. If any of the events are set, the service immediately returns; otherwise, the service puts the extended task into the WAITING state and invokes the scheduler. The service can only be invoked from the extended task that owns the events.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+            <img
+              alt="image"
+              src="public/Pics/setevt-200h.png"
+              class="event-handling-image2"
+            />
+          </div>
+          <div class="event-handling-section-separator3"></div>
+          <div id="Get" class="event-handling-get">
+            <h1 class="event-handling-text20 Section-Heading">Get Event</h1>
+            <div class="event-handling-div3">
+              <dangerous-html
+                html="<div>
+   
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType GetEvent(TaskType taskID, EventMaskRefType maskRef);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>TaskID Name of the extended task that is to being queried.</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>MaskRef Reference to a variable of type EventMaskType into which the current status of the events for the task is placed.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:2pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ID</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Input taskID is not a valid task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The task is not an extended task.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_STATE</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The task is in the SUSPENDED state. Events cannot be set for tasks in the SUSPENDED state.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 0pt; line-height: 1.5; font-size: 16pt;'>The current status of all events for the task defined by the input taskID are placed in the variable referenced by the eventRef input. The value placed here is the current state, either set or cleared, and does not indicate whether the task is waiting for the event.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>✔</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>✔</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>✔</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+          </div>
+        </div>
+        <div class="event-handling-section-separator4"></div>
+        <div class="event-handling-footer-container">
+          <div class="event-handling-footer">
+            <div class="event-handling-social-links">
+              <svg viewBox="0 0 1024 1024" class="event-handling-icon14">
+                <path
+                  d="M0 64v640h1024v-640h-1024zM960 640h-896v-512h896v512zM672 768h-320l-32 128-64 64h512l-64-64z"
+                ></path>
+              </svg>
+              <span class="event-handling-text21">
+                &nbsp;Computer and System Department&nbsp;
+              </span>
+            </div>
+            <div class="event-handling-copyright-container">
+              <svg
+                viewBox="0 0 1097.142857142857 1024"
+                class="event-handling-icon16"
+              >
+                <path
+                  d="M548.571 0l548.571 219.429v73.143h-73.143c0 20-17.714 36.571-39.429 36.571h-872c-21.714 0-39.429-16.571-39.429-36.571h-73.143v-73.143zM146.286 365.714h146.286v438.857h73.143v-438.857h146.286v438.857h73.143v-438.857h146.286v438.857h73.143v-438.857h146.286v438.857h33.714c21.714 0 39.429 16.571 39.429 36.571v36.571h-950.857v-36.571c0-20 17.714-36.571 39.429-36.571h33.714v-438.857zM1057.714 914.286c21.714 0 39.429 16.571 39.429 36.571v73.143h-1097.143v-73.143c0-20 17.714-36.571 39.429-36.571h1018.286z"
+                ></path>
+              </svg>
+              <span class="event-handling-text22">
+                &nbsp;Faculty Of Engineering Helwan University
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  </body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resource-Management - HelwanOSEK</title>
+    <meta property="og:title" content="Resource-Management - HelwanOSEK" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Raleway;
+        font-size: 18px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="shortcut icon"
+      href="public/ozekaa.ico"
+      type="icon/png"
+      sizes="32x32"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <style>
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <script
+        type="text/javascript"
+        src="https://unpkg.com/dangerous-html/dist/default/lib.umd.js"
+      ></script>
+      <link href="./resource-management.css" rel="stylesheet" />
+
+      <div class="resource-management-container">
+        <div data-role="Header" class="resource-management-navbar-container">
+          <div class="resource-management-navbar">
+            <div class="resource-management-left-side">
+              <div class="resource-management-links-container">
+                <div
+                  data-thq="thq-dropdown"
+                  class="resource-management-thq-dropdown list-item"
+                >
+                  <div
+                    data-thq="thq-dropdown-toggle"
+                    class="resource-management-dropdown-toggle"
+                  >
+                    <a href="#APIS" class="resource-management-link">APIS</a>
+                    <div
+                      data-thq="thq-dropdown-arrow"
+                      class="resource-management-dropdown-arrow"
+                    ></div>
+                    <svg
+                      viewBox="0 0 1024 1024"
+                      class="resource-management-icon"
+                    >
+                      <path
+                        d="M298 214h598v84h-598v-84zM298 554v-84h598v84h-598zM298 810v-84h598v84h-598zM170 704q26 0 45 19t19 45-19 45-45 19-45-19-19-45 19-45 45-19zM170 192q26 0 45 18t19 46-19 46-45 18-45-18-19-46 19-46 45-18zM170 448q26 0 45 18t19 46-19 46-45 18-45-18-19-46 19-46 45-18z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <ul
+                    data-thq="thq-dropdown-list"
+                    class="resource-management-dropdown-list"
+                  >
+                    <a href="#GetRes">
+                      <li
+                        data-thq="thq-dropdown"
+                        class="resource-management-dropdown list-item"
+                      >
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="resource-management-dropdown-toggle1"
+                        >
+                          <span class="resource-management-text">GetRes</span>
+                        </div>
+                      </li>
+                    </a>
+                    <li
+                      data-thq="thq-dropdown"
+                      class="resource-management-dropdown1 list-item"
+                    >
+                      <a href="#ReleaseRes">
+                        <div
+                          data-thq="thq-dropdown-toggle"
+                          class="resource-management-dropdown-toggle2"
+                        >
+                          <span class="resource-management-text01">
+                            ReleaseRes
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="resource-management-right-side">
+              <a
+                href="index.html"
+                class="resource-management-cta-btn Anchor button"
+              >
+                Home
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="resources" class="resource-management-hero">
+          <div class="resource-management-content-container">
+            <div class="resource-management-hero-text">
+              <h1 class="resource-management-heading Section-Heading">
+                Resource Management
+              </h1>
+              <a
+                href="#APIS"
+                class="resource-management-cta-btn1 button Anchor"
+              >
+                START NOW
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="APIS" class="resource-management-apis">
+          <div class="resource-management-heading-container">
+            <h2 class="resource-management-text02 Section-Heading">API</h2>
+          </div>
+          <div class="resource-management-cards-container">
+            <div class="resource-management-features-card">
+              <div class="resource-management-icon-container">
+                <svg viewBox="0 0 1024 1024" class="resource-management-icon02">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="resource-management-text-container">
+                <a
+                  href="#GetRes"
+                  class="resource-management-heading1 Card-Heading"
+                >
+                  GetRes
+                </a>
+                <span class="resource-management-text03">
+                  <span>
+                    allows users to mark a task as active or in progress. It is
+                    a way to indicate that a task has been started and is
+                    currently being worked on.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+            <div class="resource-management-features-card1">
+              <div class="resource-management-icon-container1">
+                <svg viewBox="0 0 1024 1024" class="resource-management-icon05">
+                  <path
+                    d="M533.333 234.667c-11.776 0-21.333 9.557-21.333 21.333s9.557 21.333 21.333 21.333c46.208 0 83.797 37.589 83.797 83.797 0 11.776 9.557 21.333 21.333 21.333s21.333-9.557 21.333-21.333c0-69.717-56.747-126.464-126.464-126.464z"
+                  ></path>
+                  <path
+                    d="M533.333 42.667c-176.469 0-320 143.531-320 320 0 63.403 18.773 124.672 54.357 177.707 0.981 2.005 2.091 3.925 3.413 5.76 77.867 111.189 91.563 146.347 91.563 179.2v128c0 23.552 19.115 42.667 42.667 42.667h85.333c0 11.093 4.693 22.187 12.373 30.293 8.107 7.68 19.2 12.373 30.293 12.373 11.093 0 22.187-4.693 30.293-12.373 7.68-8.107 12.373-19.2 12.373-30.293h85.333c23.552 0 42.667-19.115 42.667-42.667v-128c0-33.365 13.611-68.693 90.965-179.157 38.187-54.4 58.368-117.845 58.368-183.509 0-176.469-143.531-320-320-320zM618.667 810.667h-170.667v-42.667h170.667v42.667zM725.12 497.195c-62.549 89.301-91.435 140.331-101.76 185.472h-47.36v-85.333c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v85.333h-47.488c-10.24-43.947-38.315-93.867-98.389-180.053-0.939-1.877-2.048-3.712-3.285-5.504-28.032-39.851-42.837-86.357-42.837-134.443 0-129.408 105.259-234.667 234.667-234.667s234.667 105.259 234.667 234.667c0 48.043-14.805 94.549-42.88 134.528z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="resource-management-text-container1">
+                <span class="resource-management-heading2 Card-Heading">
+                  ReleaseRes
+                </span>
+                <span class="resource-management-text06">
+                  <span>
+                    allows users to end a task that is no longer required or
+                    cannot be completed, by either deleting the task or marking
+                    it as terminated/cancelled.
+                  </span>
+                  <br />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resource-management-section-separator"></div>
+        <div class="resource-management-container1">
+          <div id="GetRes" class="resource-management-get-res">
+            <h1 class="resource-management-text09">
+              <span>GetRes</span>
+              <br />
+            </h1>
+            <div class="resource-management-div">
+              <dangerous-html
+                html="<div>
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType GetResource(ResourceType resID);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>resID Name of the resource that is to be locked.</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>None</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ID</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Requested resource is not a valid resource.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol ;font-weight: bold' ;>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The application has attempted to get a resource that is already locked.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 8pt; line-height: 1.5; font-size: 16pt;'>This service allows the application to lock a resource and to enter into a critical section that will disable all other tasks that need access to the resource through the priority ceiling protocol. The corresponding call to ReleaseResource() should appear within the same function. The resource must be released prior to the task being placed in either the SUSPENDED or the WAITING state.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+            <img
+              alt="image"
+              src="public/Pics/relres-200h.png"
+              class="resource-management-image"
+            />
+          </div>
+          <div class="resource-management-section-separator1"></div>
+          <div id="ReleaseRes" class="resource-management-release-res">
+            <h1 class="resource-management-text12">
+              <span>ReleaseRes</span>
+              <br />
+            </h1>
+            <div class="resource-management-div1">
+              <dangerous-html
+                html="<div>
+    <p style='margin-top:0pt; margin-bottom:10pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center;  page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Prototype:</span></h2>
+    <p style='margin-top:0pt; margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>StatusType ReleaseResource(ResourceType resID);</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Inputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>resID Name of the resource that is to be unlocked.</p>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Outputs</span></h2>
+    <p style='margin-top:0pt;  margin-bottom:10pt; text-align:center; line-height:108%; font-size:16pt;'>None</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt;  margin-bottom:10pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Return</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:65.45pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Status&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:304.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>Description&nbsp;</span></strong></p>
+                    </td>
+                    <td style='width:25.2pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>S</span></strong></p>
+                    </td>
+                    <td style='width:29.45pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong><span style='color:#ffffff;'>E</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ID</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Requested resource is not a valid resource.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol ;font-weight: bold' ;>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_FUNC</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The application has attempted to release a resource that is not locked or another resource has to be released first.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OS_ACCESS</strong></p>
+                    </td>
+                    <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>The application has attempted to release a resource that has a lower ceiling priority than the statically assigned priority of the task or ISR that invoked the service.</p>
+                    </td>
+                    <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                    </td>
+                </tr>
+                <tr>
+                  <td style='width:65.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                      <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><strong>E_OK</strong></p>
+                  </td>
+                  <td style='width:304.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                      <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'>Service executed without error.</p>
+                  </td>
+                  <td style='width:25.2pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                      <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                  </td>
+                  <td style='width:29.45pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top;'>
+                      <p style='margin-top:0pt; margin-bottom:0pt; font-size:16pt;'><span style='font-family:'Segoe UI Symbol';'>✔</span></p>
+                  </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:8pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Function</span></h2>
+    <p style='margin-top: 0pt; margin-bottom: 8pt; line-height: 1.5; font-size: 16pt;'>This service allows the application to unlock a resource and to leave a critical section. The priority ceiling protocol returns the task that contains the critical section to the statically assigned priority. The corresponding call to GetResource() should appear within the same function. The resource must be released prior to the task being placed in either the SUSPENDED or the WAITING state.</p>
+    <p style='margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:16pt;'>&nbsp;</p>
+    <h2 style='margin-top:2pt; margin-bottom:0pt; text-align:center; page-break-inside:avoid; page-break-after:avoid; line-height:108%; font-size:18pt;'><span style='font-family:'Calibri Light'; color:#2f5496;'>Hook Routines Allowed</span></h2>
+    <p style='margin-top:0pt; margin-bottom:8pt;'>&nbsp;</p>
+    <div style='text-align:center;'>
+        <table cellpadding='0' cellspacing='0' style='margin-right:auto; margin-left:auto; border-collapse:collapse;'>
+            <tbody>
+                <tr>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-left:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.03pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Error</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Startup</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>Shutdown</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.4pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PreTask</span></strong></p>
+                    </td>
+                    <td style='width:82.7pt; border-top:0.75pt solid #4472c4; border-right:0.75pt solid #4472c4; border-bottom:0.75pt solid #4472c4; padding-right:5.03pt; padding-left:5.4pt; vertical-align:top; background-color:#4472c4;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'><strong><span style='color:#ffffff;'>PostTask</span></strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                    <td style='width:82.7pt; border:0.75pt solid #8eaadb; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; background-color:#d9e2f3;'>
+                        <p style='margin-top:0pt; margin-bottom:0pt; text-align:center; font-size:16pt;'>&nbsp;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style='margin-top:8pt; margin-bottom:8pt;'>&nbsp;</p>
+</div>"
+              ></dangerous-html>
+            </div>
+            <img
+              alt="image"
+              src="public/Pics/relres-200h.png"
+              class="resource-management-image1"
+            />
+          </div>
+        </div>
+        <div class="resource-management-section-separator2"></div>
+        <div class="resource-management-footer-container">
+          <div class="resource-management-footer">
+            <div class="resource-management-social-links">
+              <svg viewBox="0 0 1024 1024" class="resource-management-icon08">
+                <path
+                  d="M0 64v640h1024v-640h-1024zM960 640h-896v-512h896v512zM672 768h-320l-32 128-64 64h512l-64-64z"
+                ></path>
+              </svg>
+              <span class="resource-management-text15">
+                &nbsp;Computer and System Department&nbsp;
+              </span>
+            </div>
+            <div class="resource-management-copyright-container">
+              <svg
+                viewBox="0 0 1097.142857142857 1024"
+                class="resource-management-icon10"
+              >
+                <path
+                  d="M548.571 0l548.571 219.429v73.143h-73.143c0 20-17.714 36.571-39.429 36.571h-872c-21.714 0-39.429-16.571-39.429-36.571h-73.143v-73.143zM146.286 365.714h146.286v438.857h73.143v-438.857h146.286v438.857h73.143v-438.857h146.286v438.857h73.143v-438.857h146.286v438.857h33.714c21.714 0 39.429 16.571 39.429 36.571v36.571h-950.857v-36.571c0-20 17.714-36.571 39.429-36.571h33.714v-438.857zM1057.714 914.286c21.714 0 39.429 16.571 39.429 36.571v73.143h-1097.143v-73.143c0-20 17.714-36.571 39.429-36.571h1018.286z"
+                ></path>
+              </svg>
+              <span class="resource-management-text16">
+                &nbsp;Faculty Of Engineering Helwan University
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+  </body>
+</html>
